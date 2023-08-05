@@ -195,21 +195,17 @@ class _SignUpPageState extends State<SignUpPage> {
                             "You already have an account?",
                             style: TextStyle(color: Colors.black),
                           ),
-                          TextButton(
-                            onPressed: () {
-                              Navigator.push(
-                                // Navigasi ke halaman SignUpPage
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => LoginPAge()),
-                              );
-                            },
-                            child: Text("Login",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
-                            style: TextButton.styleFrom(
-                              padding: EdgeInsets.zero, // Hapus padding tombol
-                              tapTargetSize: MaterialTapTargetSize.shrinkWrap, // Warna teks tombol
-                            ),
-                          ),
+
+                          InkWell(onTap: (){
+                            Navigator.push(
+                              // Navigasi ke halaman SignUpPage
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => LoginPAge()),
+                            );
+                          },
+                          child: Text("Login",style: TextStyle(fontWeight: FontWeight.bold),),)
+
                         ],
                       ),
                     ],
