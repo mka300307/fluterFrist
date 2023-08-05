@@ -11,6 +11,7 @@ class SignUpPage extends StatefulWidget {
 class _SignUpPageState extends State<SignUpPage> {
   bool _showPassword = false;
   bool _showConfirmPassword = false;
+  bool _rememberMe = false;
 
   void _togglePasswordVisibility() {
     setState(() {
@@ -21,6 +22,12 @@ class _SignUpPageState extends State<SignUpPage> {
   void _toggleConfirmPasswordVisibility() {
     setState(() {
       _showConfirmPassword = !_showConfirmPassword;
+    });
+  }
+
+  void _toggleRememberMe(bool? value) {
+    setState(() {
+      _rememberMe = value ?? false;
     });
   }
 
@@ -120,7 +127,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   maxLines: 1, // Maksimum 1 baris
                   obscureText: !_showConfirmPassword,
                   decoration: InputDecoration(
-                    labelText: "Konfirmasi Password",
+                    labelText: "confirmation Password",
                     labelStyle: TextStyle(color: Colors.black),
                     border: OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.black),
@@ -138,7 +145,39 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                 ),
               ),
-              SizedBox(height: 20),
+              Column(
+                children: [
+                  Row(
+                    children: [
+                      Checkbox(
+                        value: _rememberMe,
+                        onChanged: _toggleRememberMe,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Text("By checking the box you agree to our ",style: TextStyle(fontSize: 10),),
+                              Text("Terms ",style: TextStyle(color: Color(0xffff3951),fontSize: 10),),
+                            ],
+                          ),
+                          Row(
+                            children: [
+
+                              Text("and ",style: TextStyle(fontSize: 10),),
+                              Text("Conditions.",style: TextStyle(color: Color(0xffff3951),fontSize: 10),)
+                            ],
+                          )
+                        ],
+                      )
+
+                    ],
+                  ),
+
+
+                ],
+              ),
               SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
@@ -170,52 +209,6 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
               ),
               SizedBox(height: 20,),
-              Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                        width: 45,
-                        height: 45,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(100),
-                            boxShadow: [
-                              BoxShadow(
-                                  spreadRadius: 1, blurRadius: 1, color: Colors.white)
-                            ]),
-                        child: Container(
-                            width: 40,
-                            height: 40,
-                            child: Image(image: AssetImage("images/facebook.png")))),
-                    SizedBox(width: 20,),
-                    Container(
-                        width: 45,
-                        height: 45,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(100),
-                            boxShadow: [
-                              BoxShadow(
-                                  spreadRadius: 1, blurRadius: 1, color: Colors.white)
-                            ]),
-                        child: Container(
-                            width: 40,
-                            height: 40,
-                            child: Image(image: AssetImage("images/google.png")))),
-                    SizedBox(width: 20,),
-                    Container(
-                        width: 45,
-                        height: 45,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(100),
-                            boxShadow: [
-                              BoxShadow(
-                                  spreadRadius: 1, blurRadius: 1, color: Colors.white)
-                            ]),
-                        child: Container(
-                            width: 40,
-                            height: 40,
-                            child: Image(image: AssetImage("images/vk.png")))),
-                  ]),
-              SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
