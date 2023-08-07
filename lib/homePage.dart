@@ -16,7 +16,12 @@ class _HomePageState extends State<HomePage> {
       body: ListView(
         children: [
           Row(
-            
+            children: [
+              Column(
+                children: [Text("Nama Siswa"),
+                Text("Altan Naura")],
+              )
+            ],
           )
         ],
 
