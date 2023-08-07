@@ -112,10 +112,13 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
-                  // Add your login logic here
+                  // Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(builder: (context) => ())
+                  // );
                 },
                 child: Text(
-                  "Register",
+                  "Login",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 15,
