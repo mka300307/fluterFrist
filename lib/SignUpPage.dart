@@ -183,7 +183,10 @@ class _SignUpPageState extends State<SignUpPage> {
               SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
-                  // Add your login logic here
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => LoginPage())
+                  );
                 },
                 child: Text(
                   "Register",
